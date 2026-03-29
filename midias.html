@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Rádio Conexão Regional</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg,#3a7bd5,#00d2ff);
+    text-align:center;
+}
+
+header{
+    color:white;
+    padding:40px;
+}
+
+/* LOGO */
+.logo{
+    width:120px;
+    margin-bottom:15px;
+}
+
+h1{
+    margin:0;
+    font-size:38px;
+}
+
+nav{
+    margin-top:20px;
+}
+
+button{
+    padding:12px 25px;
+    margin:10px;
+    border:none;
+    border-radius:8px;
+    background:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#333;
+    color:white;
+}
+
+.container{
+    background:white;
+    width:70%;
+    margin:30px auto;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0px 8px 20px rgba(0,0,0,0.2);
+}
+
+.media-box{
+    margin-top:25px;
+}
+
+iframe{
+    width:100%;
+    height:315px;
+    border-radius:10px;
+}
+
+audio{
+    margin-top:15px;
+}
+
+footer{
+    color:white;
+    margin-top:40px;
+    padding:15px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<!-- LOGO CENTRALIZADA -->
+<img src="logo.png" alt="Logo Rádio Conexão Regional" class="logo">
+
+<h1>📻 Rádio Conexão Regional</h1>
+<p>Conectando você à melhor mídia da região</p>
+
+<nav>
+<button onClick=<nav><a href="index.html">🏠principal</button>
+<button onclick=<nav><a href="https://www.youtube.com/embed/dQw4w9WgXcQ">🎬 Vídeo</button>
+<button onclick="mostrarAudio()">🎵 Áudio</button>
+<button onClick="Streaming()">🎬Streaming</button>
+<button onClick="Mapa multimídia()">📍Mapa multimídia</button>
+<button onClick=" Cadastro()">💾 Cadatro </button>
+<button onClick=<nav><a href="Contato.html">📞Contato</button> 
+
+</nav>
+
+</header>
+
+<div class="container">
+
+<div id="video" class="media-box">
+<h2>Área de Vídeo</h2>
+
+<iframe
+src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+title="Rick Astley - Never Gonna Give You Up (Official Video) (4K Remaster)"
+allowfullscreen>
+</iframe>
+
+</div>
+
+<div id="audio" class="media-box" style="display:none;">
+<h2>Área de Áudio</h2>
+
+<audio controls>
+<source src="audio.mp3" type="audio/mpeg">
+Seu navegador não suporta áudio.
+</audio>
+
+</div>
+
+</div>
+
+<footer>
+<p>Rádio Conexão Regional. © Ano 2026 - Todos os direitos reservados.</p>
+</footer>
+
+<script>
+
+function mostrarVideo(){
+document.getElementById("video").style.display="block";
+document.getElementById("audio").style.display="none";
+}
+
+function mostrarAudio(){
+document.getElementById("video").style.display="none";
+document.getElementById("audio").style.display="block";
+}
+</script>
+
+</body>
+</html>

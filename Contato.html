@@ -1,0 +1,239 @@
+﻿<html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>PM Portal de Mídia</title>
+
+<style>
+
+body{
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	background: linear-gradient(135deg,#3a7bd5,#00d2ff);
+	text-align: center;
+}
+
+header{
+	color: #036;
+	padding: 40px;
+}
+
+h1{
+	margin: 0;
+	font-size: 40px;
+	color: #D6D6D6;
+}
+
+nav{
+	margin-top: 20px;
+	color: #03F;
+}
+
+button{
+    padding:12px 25px;
+    margin:10px;
+    border:none;
+    border-radius:8px;
+    background:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#333;
+    color:white;
+}
+
+.container{
+	background: white;
+	width: 70%;
+	margin: 30px auto;
+	padding: 30px;
+	border-radius: 15px;
+	box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+	color: #00F;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+.media-box{
+    margin-top:25px;
+}
+
+iframe{
+    border-radius:10px;
+}
+
+audio{
+    margin-top:15px;
+}
+
+footer{
+    color:white;
+    margin-top:40px;
+    padding:15px;
+}
+
+.container form table tr th {
+	font-weight: bold;
+}
+form table {
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+	color: #000;
+	font-style: oblique;
+}
+form p {
+	font-weight: bold;
+}
+.container form table tr th {
+	font-weight: normal;
+	text-align: right;
+	font-style: italic;
+}
+.nome {
+	text-align: right;
+}
+.container form div {
+	font-size: 12px;
+	text-align: left;
+}
+.container p {
+	font-weight: bold;
+}
+.container form p {
+	text-align: left;
+}
+.container form div p {
+	text-align: left;
+	font-size: 14px;
+}
+form div div #button2 {
+	text-align: right;
+}
+.container form div p {
+	text-align: left;
+}
+.container form div table tr th div {
+	text-align: right;
+	font-weight: bold;
+}
+.container table tr th {
+	font-weight: bold;
+}
+.container table {
+	font-weight: normal;
+}
+.container form table {
+	text-align: left;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #00F;
+}
+h1 {
+	color: #0000FF;
+}
+h1 {
+	color: #036;
+}
+header {
+	color: #FFF;
+}
+h1 {
+	color: #FFF;
+}
+</style>
+</head>
+
+<body>
+
+
+<div style="text-align:center;">
+  <table border="1" style="margin:auto; width:50%;">
+  <tr>
+</tr>
+</table>
+</div>
+<header>
+
+<h1>📻 MD / Portal de Mídia Digital.  <img src="imagens/Torre_Globo.jpg" width="183" height="147"></h1>
+<p>Vídeo e áudio integrados em uma página web</p>
+
+<nav>
+<button onClick=<nav><a href="index.html">🏠principal</button>
+<button onClick=<nav><a href="midias.html">🎵midias digitais</button>
+<button onClick="Streaming()">🎬Streaming</button>
+<button onClick="Mapa multimídia()">📍Mapa multimídia</button>
+<button onClick=" Cadastro()">💾 Cadatro</button>
+<button onClick="Contato()">📞Contato</button>
+</nav>
+</header>
+<div class="container">
+  <form name="form1" method="post" action="">
+    <p align="center"><img src="imagens/arroba.jpg" alt="arroba" width="130" height="106" align="right"></p>
+    <table width="271" border="0" align="right">
+      <tr>
+        <th width="35" scope="row">Email:</th>
+        <td width="220">midias.digitais@gmail.com</td>
+      </tr>
+      <tr>
+        <th scope="row">Tel:</th>
+        <td>(73) 93268 - 4145</td>
+      </tr>
+      <tr>
+        <th scope="row">End:</th>
+        <td> Av: tancredo neves nº420, centro, Itabuna Ba. </td>
+      </tr>
+    </table>
+    <div align="center">
+      <p>&nbsp;</p>
+      <p> Fale conosco</p>
+      <table width="394" border="1">
+        <tr>
+          <th width="63" height="23" scope="col"> <div align="left">N<span class="nome">OME:</span></div></th>
+          <th width="350" scope="col"><label for="textfield"></label>
+            <div align="left">
+              <input name="textfield" type="text" id="textfield" size="52">
+          </div></th>
+        </tr>
+        <tr>
+          <th height="23" scope="col"><div align="left">E-MAIL:</div></th>
+          <th scope="col"><div align="left">
+            <input name="textfield2" type="text" id="textfield2" size="52">
+          </div></th>
+        </tr>
+        <tr>
+          <th height="31" scope="col"><div align="left">ASSUNTO:</div></th>
+          <th scope="col"><div align="left">
+            <input name="textfield3" type="text" id="textfield3" size="52">
+          </div></th>
+        </tr>
+        <tr>
+          <th height="107" scope="col"><div align="left">MENSGEM:</div></th>
+          <th scope="col"><div align="left">
+            <textarea name="textfield4" cols="52" id="textfield4"></textarea>
+          </div></th>
+        </tr>
+      </table>
+      <div align="left">
+        <input type="submit" name="button2" id="button2" value="Enviar">
+        <input name="Redefinir2" type="reset" value="excluir">
+      </div>
+      <div align="left"></div>
+    </div>
+  </form>
+</div>
+
+
+<footer style="text-align:center; padding:15px; background-color:#87CEEB;">
+<p> Rádio Conexão Regional. © Ano 2026 - Todos os direitos reservados.</p>
+</footer>
+
+<script>
+
+</footer>
+
+</body>
+</html>
