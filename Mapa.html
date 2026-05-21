@@ -1,8 +1,13 @@
-﻿<html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Rádio Conexão Regional</title>
+
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
 
 <style>
 
@@ -10,12 +15,12 @@ body{
     margin:0;
     font-family: Arial, Helvetica, sans-serif;
     background: linear-gradient(135deg,#3a7bd5,#00d2ff);
-    text-align:center;
 }
 
 header{
-	color: #036;
-	padding: 40px;
+    text-align:center;
+    color:white;
+    padding:30px;
 }
 
 h1{
@@ -23,121 +28,142 @@ h1{
     font-size:40px;
 }
 
-nav{
-	margin-top: 20px;
-	color: #03F;
-}
-
-button{
-    padding:12px 25px;
-    margin:10px;
-    border:none;
-    border-radius:8px;
-    background:white;
-    font-size:16px;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-button:hover{
-    background:#333;
-    color:white;
-}
-
 .container{
-	background: white;
-	width: 70%;
-	margin: 30px auto;
-	padding: 30px;
-	border-radius: 15px;
-	box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
-	color: #00F;
+    background:white;
+    width:85%;
+    margin:30px auto;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0px 8px 20px rgba(0,0,0,0.2);
 }
 
-.media-box{
-    margin-top:25px;
+#map{
+    height:500px;
+    border-radius:15px;
 }
 
-iframe{
-    border-radius:10px;
+.popup-content{
+    text-align:center;
 }
 
-audio{
-    margin-top:15px;
+.instagram-btn{
+    display:inline-block;
+    margin-top:10px;
+    padding:10px 15px;
+    background:#ff74a3;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.instagram-btn:hover{
+    background:#da7c9e;
 }
 
 footer{
+    text-align:center;
     color:white;
-    margin-top:40px;
-    padding:15px;
+    padding:20px;
 }
 
-a:link {
-	text-decoration: underline;
-}
-a:visited {
-	text-decoration: underline;
-}
-a:hover {
-	text-decoration: none;
-}
-a:active {
-	text-decoration: underline;
-}
-header {
-	color: #FFF;
-}
 </style>
 </head>
 
 <body>
 
-
-<div style="text-align:center;">
-  <table border="1" style="margin:auto; width:50%;">
-  <tr>
-</tr>
-</table>
-</div>
 <header>
-
-<h1>📻 Rádio Conexão Regional.  <img src="imagens/Torre_Globo.jpg" width="183" height="147" alt="Torre da Radio"></h1>
-<p>Conectando você à melhor mídia da região</p>
-
-<nav>
-<br>
-<button onClick=<nav><a href="index.html">🏠Principal</button>
-<button onClick=<nav><a href="midias.html">🎵Midias Digitais</button> 
-<button onClick="streaming()">🎬Streaming</button>
-<button onClick="mapa multimídia()">📍Mapa multimídia</button>
-<button onClick=<nav><a href="cadastro.html">💾 Cadatro </button>
-<button onClick=<nav><a href="contato.html">📞Contato</button> 
+    <h1>📻 Rádio Conexão Regional</h1>
+    <p>Mapa interativo das rádios da região</p>
 </header>
+
 <div class="container">
-<h3> Mapa Interativo Web</h3>
- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d198.40453569299817!2d-39.029853610182556!3d-14.792281999999986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7390a59025463cb%3A0x47f9f8ea8bc74277!2sAv.%20Soares%20Lopes%20-%20Ilh%C3%A9us%2C%20BA!5e1!3m2!1spt-BR!2sbr!4v1778698625390!5m2!1spt-BR!2sbr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
+
+    <h2>📍 Mapa Interativo</h2>
+
+    <div id="map"></div>
+
 </div>
- 
-  <!-- SEÇÃO DE VÍDEO -->
- <div class="container">
 
-  <!-- SEÇÃO DE VÍDEO -->
-  <div id="video" class="media-box">
-    <h2>🎬 Assista ao Vídeo</h2>
-    <video controls>
-      <source src="O que faz um Radialista - tvsaoluis - O canal do Colégio São Luís (480p, h264, youtube).mp4" type="video/mp4">
-      <source src="O que faz um Radialista - tvsaoluis - O canal do Colégio São Luís (480p, h264, youtube).mov" type="video/mov">
-      <source src="O que faz um Radialista - tvsaoluis - O canal do Colégio São Luís (480p, h264, youtube).mkv
-      " type="video/mkv">
-    </video>
-
-<br>
-<footer style="text-align:center; padding:15px; background-color:#87CEEB;">
-<p> Rádio Conexão Regional. © Ano 2026 - Todos os direitos reservados.</p>
+<footer>
+    <p>Rádio Conexão Regional © 2026</p>
 </footer>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
 <script>
 
-</footer>
+// Criando mapa
+var map = L.map('map').setView([-14.793, -39.046], 11);
+
+// Camada do OpenStreetMap
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap'
+}).addTo(map);
+
+
+// Rádio Bahiana
+L.marker([-14.7898, -39.0485]).addTo(map)
+.bindPopup(`
+<div class="popup-content">
+<h3>📻 Rádio Bahiana 1310 AM</h3>
+
+<p>
+A Rádio Bahiana de Ilhéus (AM 1310) foi fundada em 10 de fevereiro de 1961 pelo empresário Robert Assef. A emissora consolidou-se na região Sul da Bahia como um importante veículo focado em jornalismo popular, prestação de serviços e forte cobertura do esporte local.
+Você pode acompanhar a programação, acompanhar os comunicadores ou ver mais sobre a história atualizada da emissora sintonizando na frequência 1310 AM ou acessando os perfis oficiais nas redes sociais, como o Instagram da Rádio Bahiana de Ilhéus. Para escutar via internet de qualquer lugar, basta utilizar plataformas parceiras como a página da emissora no Radios.com.br.
+</p>
+
+<a class="instagram-btn"
+href="https://www.instagram.com/radiobahiana/"
+target="_blank">
+
+📸 Instagram
+</a>
+</div>
+`);
+
+
+// Rádio Morena FM
+L.marker([-14.8057, -39.2766]).addTo(map)
+.bindPopup(`
+<div class="popup-content">
+<h3>📻 Rádio Morena FM</h3>
+
+<p>
+A Morena FM é uma emissora de rádio localizada em Itabuna, no sul da Bahia, reconhecida por sua programação musical diversificada e por levar informação e entretenimento aos ouvintes da região. A rádio transmite conteúdos voltados para música, notícias locais, cultura e interação com o público, mantendo forte presença no cotidiano da comunidade itabunense. Com uma programação dinâmica e popular, a Morena FM se destaca como um importante meio de comunicação regional, aproximando os ouvintes através do rádio e das plataformas digitais.
+</p>
+
+<a class="instagram-btn"
+href="https://www.instagram.com/morenafm987?igsh=MWMzb2R6cmNoMTlmNw=="
+target="_blank">
+
+📸 Instagram
+</a>
+</div>
+`);
+
+
+// Gabriela FM
+L.marker([-14.8224, -39.0807]).addTo(map)
+.bindPopup(`
+<div class="popup-content">
+<h3>📻 Gabriela FM 102.9</h3>
+
+<p>
+A Gabriela FM é uma das emissoras de rádio mais conhecidas do sul da Bahia, transmitindo na frequência 102.9 FM diretamente da cidade de Ilhéus. A rádio possui uma programação variada, com músicas, notícias, entretenimento e programas ao vivo voltados para diferentes públicos. Conhecida pelo slogan “É ela que faz a sua trilha sonora”, a emissora se destaca pela forte conexão com os ouvintes da região e pela cobertura de acontecimentos locais. Além da transmissão tradicional, a Gabriela FM também pode ser ouvida pela internet e pelas redes sociais.
+</p>
+
+<a class="instagram-btn"
+href="https://www.instagram.com/radiogabrielafm?igsh=M3Q2bzRkYTRzZGpv"
+target="_blank">
+
+📸 Instagram
+</a>
+</div>
+`);
+
+</script>
 
 </body>
 </html>
